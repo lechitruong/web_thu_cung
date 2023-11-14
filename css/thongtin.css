@@ -1,0 +1,117 @@
+
+<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Font Awesome Stars-->
+        <link rel="stylesheet" href="css/fontawesome-stars.css">
+body {
+	color: #242424;
+	font-family: 'Rubik', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	overflow-x: hidden;
+}
+Trần Thanh Trí
+<div class="container">
+        <main>
+            <section>
+                <h1>Thông Tin Chi Tiết Đơn Hàng</h1>
+                <div>
+                    <h2>Mã Đơn Hàng: DH123456</h2>
+                    <p><strong>Ngày Đặt Hàng:</strong> 12/11/2023</p>
+                    <p><strong>Trạng Thái Đơn Hàng:</strong> Đang Vận Chuyển</p>
+                </div>
+
+                <h2>Sản Phẩm Đã Đặt</h2>
+                <ul>
+                    <li>
+                        <img height="100px" width="100px" src="image/cuncon/cuncon-alaskamummim.jpg" alt="Product 1">
+                        <p><strong>Tên Sản Phẩm:</strong> Husky</p>
+                        <p><strong>Số Lượng:</strong> 1</p>
+                        <p><strong>Giá:</strong>100.000đ</p>
+                    </li>
+                    <li>
+                        <img height="100px" width="100px" src="image/cuncon/cuncon-golden.jpg" alt="Product 2">
+                        <p><strong>Tên Sản Phẩm:</strong> Gold</p>
+                        <p><strong>Số Lượng:</strong> 1</p>
+                        <p><strong>Giá:</strong> 100.000đ</p>
+                    </li>
+                </ul>
+
+                <h2>Thông Tin Người Đặt Hàng</h2>
+                <p><strong>Họ và Tên:</strong> Trần Thanh Trí</p>
+                <p><strong>Địa Chỉ:</strong>Man Thiện, Q9, TP HCM</p>
+                <p><strong>Email:</strong> tri@gmail.com</p>
+                <p><strong>số điện thoại:</strong>0366084837</p>
+            </section>
+        </main>
+    </div>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;    
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+h2 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+p {
+    margin: 5px 5px  10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* Style links */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
