@@ -693,7 +693,35 @@
         font-weight: bold;
     }
     /* phan nut bam de hien thi san pham tung trang */
+/* nut bam */
+.pagination {
+    
+}
+#pagination-buttons{
+    display:flex;
+    justify-content: center;
+}
+.pagination li {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 10px;
+    background-color: pink;
+}
 
+.pagination .is_active {
+    font-weight: bold; /* Hiển thị trang hiện tại đậm hơn */
+}
+
+.pagination .fa-arrow-right {
+    margin-left: 20px; /* Tăng khoảng cách giữa nút "Next" và các nút số */
+}
+
+.pagination .fa-backward-fast,
+.pagination .fa-arrow-left,
+.pagination .fa-arrow-right,
+.pagination .fa-backward-fast.fa-rotate-180 {
+    cursor: pointer; /* Biến con trỏ thành pointer khi di chuột qua các nút */
+}
     /* CSS BACK TO TOP */
     
     .back-to-top {
