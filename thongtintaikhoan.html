@@ -1,44 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-    <html lang="en" style="height: auto;"><head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Trang Cá Nhân</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.css">
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        <!-- Tempusdominus Bootstrap 4 -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <!-- iCheck -->
-        <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-        <!-- JQVMap -->
-        <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-        <!-- overlayScrollbars -->
-        <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-        <!-- Daterange picker -->
-        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
-        <!-- summernote -->
-        <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- DataTables -->
-      <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-      <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-      <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    
-      <style type="text/css">/* Chart.js */
-      @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}
-      </style>
-      </head>
-<body>
+<html>
+<head>
+    <title>Pet Shop|Cửa Hàng Mua Bán Thú Cưng</title>
+    <meta name="keywords" content="Chó cảnh, pet, cách nuôi chó, mua thú cưng">
+    <meta name="description" content="Mua bán chó cảnh">
+    <meta http-equiv="refresh" content="3600">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <nav id="nav_menu">
+    <link href="css/index-style.css" rel="stylesheet" />
+    <!-- responsive -->
+    <link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css">
+    <!-- icon web -->
+    <link href="image/icon/icon-logo.PNG" rel="shortcut icon" />
+    <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Open+Sans:ital@1&family=Poppins:wght@100;300&family=Roboto:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- Link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <!--  header -->
+    <header>
+        <div class="tieude">
+            <div class="col30">
+                <img src="image/icon/logo-shop.png" alt="Petshop" />
+            </div>
+            <div class="col40">
+                <div class="search">
+                    <input type="search" placeholder="Bạn tìm gì..." />
+                    <input type="image" value="timkiem" src="image/icon/search-icon.png" />
+                </div>
+            </div>
+            <div class="col10 header-icon">
+                <a id="hotro" href="#">
+                    <img class="header-icon-img" src="image/icon/hotro-icon.png" alt="hỗ trợ">
+                    <span class="header-icon-label">Hỗ trợ</span>
+                </a>
+            </div>
+            <div class="col10 header-icon header-icon__cart">
+                <a href="./shoppingcart.html">
+                    <img class="header-icon-img" src="image/icon/giohang-icon.png" alt="Giỏ hàng">
+                    <span class="header__cart-notice">3</span>
+                    <span class="header-icon-label">Giỏ hàng</span>
+                    <div class="header__cart">
+                        <!-- No sp: header__cart-list-sp-no -->
+                        <div class="header__cart-list-sp" id="productList">
+                            <!-- <img src="./assets/img/team.jpg" alt="" class="header__cart-img">
+                            <span class="header__cart-title-sp">Team Đắk Lắk</span> -->
+                            <div class="header__cart-title">
+                            <h4 class="header__cart-title-text">Sản phẩm đã thêm</h4> 
+                            </div>
+                            <ul class="header__cart-list-sp-product">
+                                <li class="header__cart-product-sp">
+                                  <img src="./image/giongcho/alaska.jpg" alt="" class="header__cart-product-img">
+                                  <div class="header__cart-product-list">
+                                    <div class="header__cart-product-inf">
+                                      <span class="header__cart-product-title">ALASKA</span>
+                                      <div class="header__cart-product-item" onclick="deleteProduct(this)">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                      </div>
+                               </div>
+                               <div class="header__cart-product-unitPrice">
+                                   <span class="header__cart-product-price">300.000đ </span>
+                                   <span class="header__cart-product-mul">X</span>
+                                   <span class="header__cart-product-quanlity">1</span>      
+                               </div>
+                           </div>
+                                </li>
+                                <li class="header__cart-product-sp">
+                                    <img src="./image/giongcho/alaska.jpg" alt="" class="header__cart-product-img">
+                                    <div class="header__cart-product-list">
+                                      <div class="header__cart-product-inf">
+                                        <span class="header__cart-product-title">ALASKA</span>
+                                        <div class="header__cart-product-item" onclick="deleteProduct(this)">
+                                          <i class="fa-solid fa-trash-can"></i>
+                                        </div>
+                                 </div>
+                                 <div class="header__cart-product-unitPrice">
+                                     <span class="header__cart-product-price">300.000đ </span>
+                                     <span class="header__cart-product-mul">X</span>
+                                     <span class="header__cart-product-quanlity">1</span>      
+                                 </div>
+                             </div>
+                                  </li>
+                                <li class="header__cart-product-sp">
+                                    <img src="./image/giongcho/alaska.jpg" alt="" class="header__cart-product-img">
+                                    <div class="header__cart-product-list">
+                                      <div class="header__cart-product-inf">
+                                        <span class="header__cart-product-title">ALASKA</span>
+                                        <div class="header__cart-product-item" onclick="deleteProduct(this)">
+                                          <i class="fa-solid fa-trash-can"></i>
+                                        </div>
+                                 </div>
+                                 <div class="header__cart-product-unitPrice">
+                                     <span class="header__cart-product-price">300.000đ </span>
+                                     <span class="header__cart-product-mul">X</span>
+                                     <span class="header__cart-product-quanlity">1</span>      
+                                 </div>
+                             </div>
+                                  </li>
+                            </ul>
+                            <div class="header__cart-btn">
+                                <button class="btn btn-black">
+                                    <a href="./shoppingcart.html">Xem giỏ hàng
+                                    </a>
+                                </button>
+                                <button class="btn btn-red">
+                                    <a href="./checkout.html">Thanh toán
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </a>   
+            </div>
+            <div class="col10 header-icon">
+                <a href="">
+                    <img class="header-icon-img" src="image/icon/dangnhap-icon.png" alt="tài khoản">
+                    <span class="header-icon-label">Tài Khoản</span>
+                    <div class="dropdown-content">
+                        <a href="login.html">Đăng nhập</a>
+                        <a href="register.html">Đăng ký</a>
+                    </div>
+                    <div class="dropdown-logout">
+                        <a href="login.html">Logout</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!--  nav -->
+    <nav id="nav_menu">
         <ul class="menu">
             <li>
                 <a href="index.html">
@@ -90,162 +200,207 @@
                 </a>
             </li>
         </ul>
-    </nav> -->
-    
- <!-- <div class="all">
-    <div class="container">
-        <h1>Hồ Sơ Cá Nhân</h1>
-        <form>
-            <div class="form-group">
-                <label  for="username">Tên Đăng Nhập:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label  for="email">Email:               </label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label  for="phone">Số Điện Thoại:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group sex">
-                <label>Giới Tính:</label>
-                <select id="cars" class="cars">
-                    <option value="volvo">nam</option>
-                    <option value="saab">nữ</option>
-                    <option value="saab">khác</option>
+    </nav>
+    <!-- section main -->
+    <section class="main">
+        <section class="content">
+            <div class="container-fluid">
+              <!-- Small boxes (Stat box) -->
+                <div class="row ">
                     
-                  </select>
-            </div>
-            <div class="form-group">
-                <label for="dob">Ngày Sinh:</label>
-                <input type="date" id="dob" name="dob" required>
-            </div>
-            <button type="submit">Lưu Hồ Sơ</button>
-        </form>
-    </div>
-    <div id="profile-container">
-      <img id="avatar" src="avatar.jpg" alt="Avatar">   
-      <input type="file" id="avatar-input" accept="image/*">
-      <label for="avatar-input" id="change-avatar-btn">Thay đổi avatar</label>
-    
-      <h2>Họ và tên: Trần Thanh Trí</h2>
-      <p>Email: tri@gmail.com</p>
-      <p>Số điện thoại: 0366084837</p>
-    </div>
- </div> -->
- <section class="content">
-    <div class="container-fluid">
-      <!-- Small boxes (Stat box) -->
-        <div class="row">
-            
-            <div class="col-md-12">
-            <div class="card card-primary">
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form>
-                  <div class="card-body">
-                    <div class="form-group">
-                        <label for="exampleInputName1">Họ Và Tên</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ và Tên" value="Lê Chí Trường">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Địa Chỉ Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="21130591@st.hcmuaf.edu.vn">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputGender">Giới Tính</label>
-                      <select class="form-control">
-                        <option>Nam</option>
-                        <option>Nữ</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPhoneNumber1">Số Điện Thoại</label>
-                        <input type="number" class="form-control" id="exampleInputPhoneNumber1" placeholder="Nhập email" value="0123456678">
+                    <div class="col-md-12">
+                    <div class="card card-primary">
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form>
+                          <div class="card-body">
+                            
+                            <div class="row">
+                                <div class="form-group col-8">
+                                    <label for="exampleInputFile">Avatar</label>
+                                  
+                                      <div class="input-group">
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                            <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
+                                          </div>
+                                         
+                                        </div>
+                                  </div>
+                                  
+                                  <div class="col-4">
+                                    <img src="image/Unknown_person.jpg" id="blah" alt="" height="200" width="200">
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputName1">Họ Và Tên</label>
+                                <input type="text" style="width: 100%; padding: 5px; margin: 0px;" class="form-control" id="exampleInputName1" placeholder="Họ và Tên" value="Lê Chí Trường">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Địa Chỉ Email</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email" value="21130591@st.hcmuaf.edu.vn">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputGender">Giới Tính</label>
+                              <select class="form-control">
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPhoneNumber1">Số Điện Thoại</label>
+                                <input type="number" class="form-control" id="exampleInputPhoneNumber1" placeholder="Nhập email" value="0123456678">
+                              </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Nhập Mật Khẩu</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Password">
+                            </div>
+                           
+                          </div>  
+                        </form>
                       </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Nhập Mật Khẩu</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputFile">Avatar</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
-                          <label class="custom-file-label" for="exampleInputFile">Chọn Ảnh</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Tải Lên</span>
-                        </div>
                       </div>
-                    </div>
-                  </div>  
-                </form>
+                </div>
+                    <!-- /.card-body -->
+              <!-- /.row (main row) -->
               </div>
-              </div>
-        </div>
-            <!-- /.card-body -->
-      <!-- /.row (main row) -->
-      </div>
+            </section>
+        
+       
     </section>
+    <!-- nut go to back -->
+    <div class="back-to-top" id="backtop">
+        <a href="">
+            <img src="image/icon/icon-backtotop.png" alt="back to top" />
+        </a>
+    </div>
+    <!-- thong tin lien he -->
+    <div class="contact-bubbles">
+        <div class="bubbles-zalo">
+
+            <a target="_blank" href="zalo.html"><img src="image/icon/zalo-icon.png" alt="icon" /></a>
+        </div>
+        <div class="bubbles-mesenge">
+
+            <a target="_blank" href="https://www.facebook.com/Petshop-112119790614434"><img src="image/icon/facebook-icon.png" alt="icon" /></a>
+
+        </div>
+        <div class="bubbles-mail">
+
+            <a href="mailto:petshop.cuahangmuabanthucung@gmail.com"><img src="image/icon/mail-icon.png" alt="icon" /></a>
+
+        </div>
+        <div class="bubbles-phone">
+
+            <a target="_blank" href="lienhe.html"><img src="image/icon/phone-con-thongtin.png" alt="icon" /></a>
+
+        </div>
+
+    </div>
+    <!-- form ho tro -->
+    <div class="form-support">
+        <div>
+            <h1>
+                HỖ TRỢ
+            </h1>
+        </div>
+        <div>
+            <img src="image/icon/user-name.png" /><input type="text" placeholder="Nhập họ và tên..." />
+        </div>
+        <div>
+            <img src="image/icon/number-phone.png" /><input type="text" placeholder="Nhập số điện thoại..." />
+        </div>
+
+        <div>
+            <img src="image/icon/mail-name.png" /><input type="text" placeholder="Nhập email của bạn..." />
+        </div>
+        <div class="question">
+            <textarea placeholder="Nhập nội dung" rows="5">
+Nhập nội dung
+        </textarea>
+            <div>
+                <input type="button" value="Gửi đi" />
+            </div>
+        </div>
+        <div id="knot">
+            <img src="image/icon/botton-out.png">
+        </div>
+    </div>
 
 
- <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
- <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
- <script>
-   $.widget.bridge('uibutton', $.ui.button)
- </script>
- <!-- Bootstrap 4 -->
- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
- <!-- ChartJS -->
- <script src="../../plugins/chart.js/Chart.min.js"></script>
- <!-- Sparkline -->
- <script src="../../plugins/sparklines/sparkline.js"></script>
- <!-- jQuery Knob Chart -->
- <script src="../../plugins/jquery-knob/jquery.knob.min.js"></script>
- <!-- daterangepicker -->
- <script src="../../plugins/moment/moment.min.js"></script>
- <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
- <!-- Tempusdominus Bootstrap 4 -->
- <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
- 
- <!-- Summernote -->
- <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
- <!-- overlayScrollbars -->
- <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
- <!-- AdminLTE App -->
- <script src="../../dist/js/adminlte.js"></script>
- <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- Page specific script -->
-<script>
- $(function () {
-   $("#example1").DataTable({
-     "responsive": true, "lengthChange": false, "autoWidth": false,
-     "buttons": ["copy", "excel", "pdf", "print", "colvis"]
-   }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-   $('#example2').DataTable({
-     "paging": true,
-     "lengthChange": false,
-     "searching": true,
-     "ordering": true,
-     "info": true,
-     "autoWidth": true,
-     "responsive": true,
-   });
- });
-</script>
+    <!--footer-->
+    <footer>
+        <div class="footer">
+            <div class="col30 footer-logo">
+                <img src="image/icon/logo-shop.png" alt="logoshop" />
+            </div>
+            <div class="col40 freeship">
+                <div><img src="image/icon/icon-shipping.png" alt="shipping" /></div>
+                <div>Giao hàng miễn phí tại TP.HCM, Hà Nội, Đà Nẵng Áp dụng cho đơn hàng từ 500.000đ trở lên</div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="col20 footer-info">
+                <h6>Về chúng tôi</h6>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Chi nhánh</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li>
+                        <a target="_blank" href="http://online.gov.vn/"><img src="image/icon/icon-bocongthuong.png" alt="bộ công thương"></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.dmca.com/Protection/Status.aspx?ID=1bf3f65e-4ac8-457e-8400-9d299263f727"><img src="image/icon/_dmca_premi_badge_7.png" alt="chứng nhận"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col40 footer-support">
+                <h6>Hỗ trợ khách hàng</h6>
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Điều khoản và điều kiện</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Chính sách thanh toán</a></li>
+                    <li><a href="#">Chính sách giao hàng</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Hướng dẫn gửi trả hàng</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Mua trả góp</a></li>
+                    <li><a href="#">Chất lượng dịch vụ</a></li>
+                </ul>
+            </div>
+            <div class="col40 footer-contact">
+                <h6>Thông tin liên hệ</h6>
+                <ul>
+                    <li>Địa chỉ: Chung cư An Bình, An Bình, Dĩ An, Bình Dương <a target="_blank" href="https://www.google.com/maps/search/dai+hoc+mo+tphcmnguyen+kiem/@10.776026,106.6873724,16.58z?hl=vi-VN">Chỉ đường</a></li>
+                    <li>Địa chỉ: Đại Học Nông Lâm, Khu Phố 6, Linh Trung, Thủ Đức, Thành phố Hồ Chí Minh <a target="_blank" href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90H+M%E1%BB%9F+
+                        TP.+H%E1%BB%93+Ch%C3%AD+Minh/@10.7762811,106.6860528,16.58z/data=!4m5!3m4!1s0x31752f3ae35e3725:0x20c5174a
+                        47f97be3!8m2!3d10.776266!4d106.6904628?hl=vi-VN">Chỉ đường</a></li>
+                    <li>Địa chỉ:  Tân Phú Tân Hội Đức Trọng Lâm Đồng. <a target="_blank" href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+THPT
+                        +L%C6%B0%C6%A1ng+Th%E1%BA%BF+Vinh/@9.9069258,106.5655095,17z/data=!4m5!3m4!1s0x319ff5bf4d219b61:0xc1d836c355101725!8m2!3d9.9069469!4d106.5642804?hl=vi
+                        -VN">Chỉ đường</a></li>
+                    <li>
+                        Email: <a href="mailto:petshop.cuahangthucung@gmail.com">thucungshop.cuahangthucung@gmail.com</a>
+                    </li>
+                    <li>
+                        Holine: <span class="mauholine">0797612838</span>
+                    </li>
+                    <li>
+                        Website: <a href="http://127.0.0.1:5500/index.html">https://pethouse.com.vn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- javascript -->
+    <script src="javascript/style_javascript.js"></script>
+        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Font Awesome Stars-->
+        <link rel="stylesheet" href="css/fontawesome-stars.css">
 </body>
+
 </html>
