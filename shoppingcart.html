@@ -86,44 +86,44 @@
             <div class="col-12">
                 <form action="#">
                     <div class="table-content table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="li-product-remove">Xóa</th>
-                                    <th class="li-product-thumbnail">Ảnh</th>
-                                    <th class="cart-product-name">Sản phẩm</th>
-                                    <th class="li-product-price">Giá</th>
-                                    <th class="li-product-quantity">Số lượng</th>
-                                    <th class="li-product-subtotal">Tổng</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="li-product-remove"><a href="#" onclick="removeProduct(this);"><i class="fa fa-times"></i></a></td>
-                                    <td class="li-product-thumbnail"><a href="#"><img style="width: 190px;" src="./image/icon/a1.jpg" alt="Li's Product Image"></a></td>
-                                    <td class="li-product-name"><a href="#">Gold đần</a></td>
-                                    <td class="li-product-price"><span class="amount">60000đ</span></td>
-                                    <td class="quantity">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="li-product-remove">Xóa</th>
+                                        <th class="li-product-thumbnail">Ảnh</th>
+                                        <th class="cart-product-name">Sản phẩm</th>
+                                        <th class="li-product-price">Giá</th>
+                                        <th class="li-product-quantity">Số lượng</th>
+                                        <th class="li-product-subtotal">Tổng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="li-product-remove"><a href="#" onclick="removeProduct(this);"><i class="fa fa-times"></i></a></td>
+                                        <td class="li-product-thumbnail"><a href="#"><img style="width: 190px;" src="./image/icon/a1.jpg" alt="Li's Product Image"></a></td>
+                                        <td class="li-product-name"><a href="#">Gold đần</a></td>
+                                        <td class="li-product-price"><span class="amount">60000đ</span></td>
+                                        <td class="quantity">
+                                                <input type="button" value="-" class="button minus" onclick="adjustQuantity(this, 'decrease')">
+                                                <input type="text" class="input-text quantityInput" step="1" min="1" max="9999" name="quanlity" value="1" title="SL" size="4" pattern="[0-9]*" inputmode="numeric">
+                                                <input type="button" value="+" class="button plus" onclick="adjustQuantity(this, 'increase')">
+                                        </td>
+                                        <td class="product-subtotal"><span class="total-amount">60000đ</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="li-product-remove"><a href="#" onclick="removeProduct(this);"><i class="fa fa-times"></i></a></td>
+                                        <td class="li-product-thumbnail"><a href="#" ><img style="width: 190px;" src="./image/icon/a6.jpg!w700wp" alt="Li's Product Image"></a></td>
+                                        <td class="li-product-name"><a href="#">Histky</a></td>
+                                        <td class="li-product-price"><span class="amount">70000đ</span></td>
+                                        <td class="quantity">
                                             <input type="button" value="-" class="button minus" onclick="adjustQuantity(this, 'decrease')">
                                             <input type="text" class="input-text quantityInput" step="1" min="1" max="9999" name="quanlity" value="1" title="SL" size="4" pattern="[0-9]*" inputmode="numeric">
                                             <input type="button" value="+" class="button plus" onclick="adjustQuantity(this, 'increase')">
-                                    </td>
-                                    <td class="product-subtotal"><span class="total-amount">60000đ</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="li-product-remove"><a href="#" onclick="removeProduct(this);"><i class="fa fa-times"></i></a></td>
-                                    <td class="li-product-thumbnail"><a href="#" ><img style="width: 190px;" src="./image/icon/a6.jpg!w700wp" alt="Li's Product Image"></a></td>
-                                    <td class="li-product-name"><a href="#">Histky</a></td>
-                                    <td class="li-product-price"><span class="amount">70000đ</span></td>
-                                    <td class="quantity">
-                                        <input type="button" value="-" class="button minus" onclick="adjustQuantity(this, 'decrease')">
-                                        <input type="text" class="input-text quantityInput" step="1" min="1" max="9999" name="quanlity" value="1" title="SL" size="4" pattern="[0-9]*" inputmode="numeric">
-                                        <input type="button" value="+" class="button plus" onclick="adjustQuantity(this, 'increase')">
-                                    </td>
-                                    <td class="product-subtotal"><span class="total-amount">70000đ</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                        <td class="product-subtotal"><span class="total-amount">70000đ</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                     </div>
                     <div class="row">
                         <div class="col-md-5 ml-auto">
