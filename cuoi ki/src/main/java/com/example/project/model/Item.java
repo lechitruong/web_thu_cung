@@ -1,5 +1,7 @@
 package com.example.project.model;
 
+import com.example.project.model.Product;
+
 import java.io.Serializable;
 
 public class Item implements Serializable {
