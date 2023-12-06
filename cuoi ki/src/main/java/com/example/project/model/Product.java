@@ -1,4 +1,4 @@
-package com.example.petstoreproject.model;
+package com.example.project.model;
 
 public class Product {
 	private String id;
