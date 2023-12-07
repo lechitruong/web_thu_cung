@@ -53,6 +53,7 @@
 <div class="overlay"></div>
 <!--  header -->
 <header>
+    <p>Welcome ${sessionScope.username }</p>
     <div class="tieude">
         <div class="col30">
             <img src="${pageContext.request.contextPath}/assets/user/image/icon/logo-shop.png" alt="Petshop" />

@@ -1,4 +1,4 @@
-package com.example.project.model;
+package com.example.project.entities;
 import java.util.List;
 
 public class Order {
