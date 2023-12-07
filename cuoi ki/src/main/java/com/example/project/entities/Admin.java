@@ -1,4 +1,4 @@
-package com.example.project.model;
+package com.example.project.entities;
 
 public class Admin {
 	 int id;

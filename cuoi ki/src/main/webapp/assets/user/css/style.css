@@ -8,7 +8,7 @@
     body {
         color: #000000;
         font-family: 'Rubik', sans-serif !important;
-        background-image: url("${pageContext.request.contextPath}/assets/user/image/icon/background-header.jpg");
+        background-image: url('../image/icon/background-header.jpg');
         background-attachment: fixed;
         font-size: 16px;
     }
@@ -44,7 +44,7 @@
     h2 {
         padding: 5px;
         border-bottom: 2px solid #ffa500;
-        border-width: 100%;
+        /*border-width: 100%;*/
         text-transform: uppercase;
     }
     h6{
@@ -151,7 +151,7 @@
         font-size: 1.6rem;
         display: block;
         margin-top: 14px;
-        color: var(--text--color);
+        /*color: var(--text--color);*/
         display: none;
     }
     /* Có sản phẩm */
@@ -453,7 +453,7 @@
           width: 100%;
         }
         .product__promotion .product__promotion--title{
-            background-color: none;
+            /*background-color: none;*/
             width: 100%;
         }
         .cart{
@@ -817,7 +817,7 @@
     /* FOOTER */
     
     footer {
-        background-image: url("${pageContext.request.contextPath}/assets/user/image/anhhotro/background-footer.PNG");
+        background-image: url('../image/anhhotro/background-footer.PNG');
         background-size: 100%;
         color: #ffffff;
     }

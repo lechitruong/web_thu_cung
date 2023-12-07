@@ -1,6 +1,4 @@
-package com.example.project.model;
-
-import com.example.project.model.Product;
+package com.example.project.entities;
 
 import java.io.Serializable;
 
