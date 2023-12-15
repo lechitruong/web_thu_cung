@@ -1,4 +1,4 @@
-package com.example.project.model;
+package com.example.project.models;
 import com.example.project.entities.*;
 
 import java.util.ArrayList;

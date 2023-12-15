@@ -1,6 +1,6 @@
 package com.example.project.servlet.user;
 
-import com.example.project.model.UserModel;
+import com.example.project.models.UserModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
