@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
         }else if(action.equalsIgnoreCase("home")) {
             doGet_Home(req, resp);
         }else if(action.equalsIgnoreCase("logout")){
-            doGet_Logout(request, response);
+            doGet_Logout(req, resp);
 
         }
     }

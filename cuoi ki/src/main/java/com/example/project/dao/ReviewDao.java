@@ -1,8 +1,9 @@
-package com.example.petstoreproject.dao;
+package com.example.project.dao;
 
 import java.util.List;
 
 import com.example.petstoreproject.model.Review;
+
 
 public interface ReviewDao {
 	void insert(Review review);

@@ -1,8 +1,8 @@
-package com.example.petstoreproject.dao;
+package com.example.project.dao;
  
 import java.util.List;
 
-import com.example.petstoreproject.model.Admin;
+import com.example.project.entities.Admin;
  
 public interface AdminDao { 
 	void insert(Admin admin); 
