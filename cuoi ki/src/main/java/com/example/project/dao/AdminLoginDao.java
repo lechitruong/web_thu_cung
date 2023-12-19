@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.example.petstoreproject.jdbc.DBConnect;
-import com.example.petstoreproject.model.Admin;
+import com.example.project.
+.DBConnect;
+import com.example.project.model.Admin;
 
 
 

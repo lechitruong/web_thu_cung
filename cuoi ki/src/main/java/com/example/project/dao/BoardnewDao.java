@@ -1,8 +1,8 @@
-package com.example.petstoreproject.dao;
+package com.example.project.dao;
 
 import java.util.List;
 
-import com.example.petstoreproject.model.Boardnew;
+import com.example.project.model.Boardnew;
 
 public interface BoardnewDao {
 	void insert(Boardnew boardnew);
