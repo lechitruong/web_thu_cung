@@ -209,7 +209,7 @@ function addComment() {
     newComment.appendChild(commentText);
 
     var commentList = document.getElementById("comment-list");
-    commentList.appendChild(newComment);
+    commentList.prepend(newComment);
 
     var replyButton = document.createElement("button");
     replyButton.appendChild(document.createTextNode("Trả lời"));
