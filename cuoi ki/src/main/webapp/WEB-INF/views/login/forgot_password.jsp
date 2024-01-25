@@ -12,7 +12,7 @@
 <body>
 	<div class="overlay__pass hidden"></div>
 	<div class="container">
-		<%
+		<% 
 		HttpSession session2 = request.getSession();
 		String msg = (String) (session2.getAttribute("msg"));
 		String msg1 = msg;
