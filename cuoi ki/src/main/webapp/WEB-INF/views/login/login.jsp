@@ -29,8 +29,7 @@
 					type="password" name="password"
 					placeholder="Vui lòng nhập Mật khẩu">
 				<div style="display: flex; justify-content: space-between;">
-					<a href="${pageContext.request.contextPath}/forgotpassword?action=sendotp">Quên mật khẩu</a> <a
-						href="${pageContext.request.contextPath}/changepassword?action=changepassword">Đổi mật khẩu</a>
+					<a href="${pageContext.request.contextPath}/forgotpassword?action=sendotp">Quên mật khẩu</a> 
 				</div>
 				<input type="submit" class="button" value="Đăng nhập">
 			</form>

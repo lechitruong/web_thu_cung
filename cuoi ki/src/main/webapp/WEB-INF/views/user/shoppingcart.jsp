@@ -11,7 +11,9 @@
             <div class="col-12">
              
                     <div class="table-content table-responsive">
-                    <a href="${pageContext.request.contextPath}/main">Back</a>
+                    <button style="border: none; outline: none;">
+                    <a href="${pageContext.request.contextPath}/main" style="background-color: black; color: blue; text-decoration:none; padding: 5px; margin-top: 10px;  ">Trở lại</a>                    
+                    </button>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -46,22 +48,6 @@
                                    
                                 </tbody>
                             </table>
-                            <% int j = 0; %>
-                           <form method="post" action="${posturl}">		
-									<input type="hidden" name="upload" value="1" /> 
-									<input type="hidden" name="return" value="${returnurl}" /> 
-									<input type="hidden" name="cmd" value="_cart" /> 
-									<input type="hidden" name="business"  value="${business}"/>
-									<c:forEach var="pet" items="${sessionScope.pets }" varStatus="i">
-										
-										<input type="hidden" name="item_number_${i.index + 1}" value="${pet.id}" /> 
-										<input type="hidden" name="item_name_${i.index + 1}" value="${pet.petName}" /> 
-										<input type="hidden" name="amount_${i.index + 1}" value="2000000" /> 
-										<input type="hidden" name="item_quantity_${i.index + 1}" value="1" /> 
-									 </c:forEach> 
-									
-									<button type="submit">Pay</button>
-							</form>
                     </div>
                     <div class="row">
                         <div class="col-md-5 ml-auto">
@@ -80,7 +66,7 @@
                             <div class="coupon-all">
                                 <div class="coupon"></div>
                                 <div class="coupon2">                              
-                                        <button class="coupon-checkout" style="margin-right: 100px;">
+                                        <button class="coupon-checkout" style="margin-right: 180px;">
                                             <a href="${pageContext.request.contextPath }/checkout">Thanh toán</a>
                                         </button>
                                 </div>

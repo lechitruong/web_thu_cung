@@ -16,6 +16,23 @@ public class Pets {
 	private String image;
 	private int categoryPetId;
 	private int catalogId;
+	
+	public Pets(String petName, String petType, String petGender, String description, String detail, String made,
+			int amount, String money, Date createDate, String image, int categoryPetId, int catalogId) {
+		super();
+		this.petName = petName;
+		this.petType = petType;
+		this.petGender = petGender;
+		this.description = description;
+		this.detail = detail;
+		this.made = made;
+		this.amount = amount;
+		this.money = money;
+		this.createDate = createDate;
+		this.image = image;
+		this.categoryPetId = categoryPetId;
+		this.catalogId = catalogId;
+	}
 	public Pets(int id, String petName, String petType, String petGender, String description, String detail, String made,
 			int amount, String money, Date createDate, String image, int categoryPetId, int catalogId) {
 		super();

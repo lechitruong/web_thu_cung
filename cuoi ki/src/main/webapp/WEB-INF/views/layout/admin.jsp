@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+	<%@ page import="com.demo.entities.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +28,14 @@
 <link href="${pageContext.request.contextPath}/assets/admin/css/icons.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/assets/admin/css/sidebar-menu.css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/assets/admin/css/app-style.css" rel="stylesheet" />
+<%
+Users admin =(Users) request.getSession().getAttribute("user");
 
+%>
 <script>
 	$(function() {
-		$("#datepicker").datepicker({
-			dateFormat : 'dd/mm/yy'
+		$("#createDate").datepicker({
+			dateFormat : 'yy/mm/dd'
 		});
 	});
 </script>
@@ -84,21 +88,10 @@
             <i class="zmdi zmdi-shopping-cart"></i> <span>Đơn Hàng</span>
           </a>
         </li>
-        
         <li>
-          <a href="${pageContext.request.contextPath}/admin/chitietdonhang">
-            <i class="zmdi zmdi-shopping-cart"></i> <span>Chi Tiết Đơn Hàng</span>
-          </a>
-        </li>
-        <li>
-          <a href="${pageContext.request.contextPath}/admin/riview">
+          <a href="${pageContext.request.contextPath}/admin/review">
             <i class="zmdi zmdi-calendar-check"></i> <span>Review</span>
           </a>   
-        </li>
-        <li>
-          <a href="${pageContext.request.contextPath}/admin/tintuc">
-            <i class="icon-envelope-open"></i> <span>Tin tức</span>
-          </a>
         </li>
       </ul>
     </div>
@@ -115,25 +108,24 @@
         <ul class="navbar-nav align-items-center right-nav-link">
           <li class="nav-item">
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-              <span class="user-profile"><img src="${pageContext.request.contextPath}/view/admin/assets/images/avatar-admin.png" class="img-circle"
+              <span class="user-profile"><img src="${pageContext.request.contextPath}/assets/admin/images/avatar-admin.png" class="img-circle"
                   alt="user avatar"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item user-details">
                 <a href="javaScript:void();">
                   <div class="media">
-                    <div class="avatar"><img class="align-self-start mr-3" src="${pageContext.request.contextPath}/view/admin/assets/images/avatar-admin.png"
+                    <div class="avatar"><img class="align-self-start mr-3" src="${pageContext.request.contextPath}/assets/admin/images/avatar-admin.png"
                         alt="user avatar"></div>
                     <div class="media-body">
-                      <h6 class="mt-2 user-title">petshopwebsite</h6>
-                	<b> Admin:  <%=session.getAttribute("user1") %></b>                         
+                      <h6 class="mt-2 user-title">Petshopwebsite</h6>
+                	<b> Admin:  <%= admin.getFullName() %></b>                         
                     </div>
                   </div>
                 </a>
-              </li>
-            
+              </li>   
               <li class="dropdown-divider"></li>
-			 <li class="dropdown-item"><i class="icon-power mr-2"></i><a href="${pageContext.request.contextPath}/admin/logout"> Đăng xuất</a></li>		
+			 <li class="dropdown-item"><i class="icon-power mr-2"></i><a href="${pageContext.request.contextPath}/login?action=logout"> Đăng xuất</a></li>		
             </ul>
           </li>
         </ul>

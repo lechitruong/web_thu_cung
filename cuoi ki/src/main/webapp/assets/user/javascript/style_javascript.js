@@ -238,10 +238,7 @@ function handleStarClick(starValue) {
  function addToCart(){
     alert('Sản phẩm đã được thêm vào giỏ hàng!');
  };
-// xác nhận đặt hàng
-function checkOutOrder(){
-    alert('Khách hàng đã đặt hàng thành công!');
-};
+
 
 var thisPage = 1;
 var limit = 20;

@@ -10,5 +10,25 @@
   	<description></description>
   	<filter-class>com.demo.servlets.admin.AdminFilter</filter-class>
   </filter>
+  <servlet>
+  	<servlet-name>Autocomplete</servlet-name>
+  	<display-name>Autocomplete</display-name>
+  	<description></description>
+  	<servlet-class>com.demo.servlets.user.Autocomplete</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DialogMessage</servlet-name>
+  	<display-name>DialogMessage</display-name>
+  	<description></description>
+  	<servlet-class>com.demo.servlets.user.DialogMessage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Autocomplete</servlet-name>
+  	<url-pattern>/Autocomplete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DialogMessage</servlet-name>
+  	<url-pattern>/DialogMessage</url-pattern>
+  </servlet-mapping>
 
 </web-app>

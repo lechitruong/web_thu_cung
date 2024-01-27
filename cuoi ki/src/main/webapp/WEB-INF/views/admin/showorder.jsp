@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.demo.entities.*" %>
+<%@ page import="com.demo.models.*" %>
+<%@ page import="java.util.*" %>
 <%
   response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
   response.setHeader("Pragma" , "no-cache");
@@ -9,6 +12,7 @@
   if (session.getAttribute("admin-username") == null){
 	  response.sendRedirect(request.getContextPath() + "/admin/login");
   }
+  List<Orders> orders = (List<Orders>)request.getAttribute("orders");
   %>
   <!-- Start header section -->
     <div class="content-wrapper">
@@ -34,54 +38,35 @@
                          <th scope="col">Địa chỉ</th>
                          <th scope="col">Ghi chú</th>
                          <th scope="col">Tổng tiền</th>
-                         <th scope="col">Phương thức thanh toán</th>
-                         <th scope="col">Trạng thái</th>
                           <th scope="col">Ngày tạo</th>
-                           <th scope="col">Hành động</th>
+                          <th scope="col">Hành động</th>
+                         <th scope="col">Trạng thái</th>
                         
                       </tr>
                     </thead>
                     <tbody>
-                  <c:forEach items="${order}" var="order">
+                    
+                    <% for(Orders order: orders){ %>
+                    <form method="post" action="${pageContext.request.contextPath }/admin/donhang?action=browser&id=<%= order.getId() %>">
                       <tr>
-                        <td scope="row">${order.id}</td>
-                         <td>${order.user_session}</td>
-                        <td>${order.user_name}</td>
-                        <td>${order.user_mail}</td>
-                        <td>${order.user_phone}</td>
-                        <td>${order.address}</td>
-                         <td>${order.message}</td>
-                         <td>${order.amount} VNĐ</td>
-                          <td>  <c:choose>
-	                        <c:when test="${order.payment == 0}"> 
-	                        	<c:out value="COD"/>
-	                       	</c:when>
-	                       	<c:otherwise>
-						        <c:out value="Thẻ nội địa ATM"/>
-						    </c:otherwise>
-                       	</c:choose>
-                          
-                          </td>
+                        <td scope="row"><%= order.getId() %></td>
+                         <td><%= order.getUserId() %></td>
+                        <td><%= order.getFullName() %></td>
+                        <td><%= order.getEmail() %></td>
+                        <td><%= order.getPhoneNumber() %></td>
+                        <td><%= order.getAddress() %></td>
+                         <td><%= order.getNote() %></td>
+                         <td><%= order.getTotalMoney() %></td>
+                          <td><%= order.getOrderDate() %>  </td>
                           <td>
-                          	  <c:choose>
-	                        <c:when test="${order.status == NULL}"> 
-	                        	<c:out value="Chưa thanh toán"/>
-	                       	</c:when>
-	                       	<c:otherwise>
-						        <c:out value="Đã thanh toán"/>
-						    </c:otherwise>
-                       	</c:choose>
-                          </td>
-                           <td>${order.created}</td>
-                           
-        				
+                        <button class="btn btn-success"><i class="fa"></i><a href="${pageContext.request.contextPath}/admin/chitietdonhang?action=chitietdonhang&id=<%= order.getId() %>">Chi tiết</a></button>
+                        </td>  				
         				 <td>
-                         <button class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/order/delete?id=${order.id}">Xóa</a></button>
-                         
-                          <button class="btn btn-success"><a href="${pageContext.request.contextPath}/admin/order/edit?id=${order.id}">Sửa</a></button>
+                         <button class="btn btn-danger" type="submit"><%= order.isStatus()?"Đã duyệt":"Duyệt đơn hàng" %></button>
                         </td>
                      </tr>
-                    </c:forEach>
+                     </form>
+                    <% } %>
                     </tbody>
                   </table>
                 </div>

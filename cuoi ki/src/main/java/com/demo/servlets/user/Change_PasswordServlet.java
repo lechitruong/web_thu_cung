@@ -72,7 +72,7 @@ public class Change_PasswordServlet extends HttpServlet {
 		String oldPass = request.getParameter("oldpass");
 		String newPass = request.getParameter("newpass");
 		UserModel userModel = new UserModel();
-		Users users = userModel.findUserByEmail(email);
+		Users users =( Users)request.getSession().getAttribute("user");
 		if (users != null) {
 			if (BCrypt.checkpw(oldPass, users.getPassword())) {
 				users.setPassword(BCrypt.hashpw(newPass, BCrypt.gensalt()));
@@ -83,10 +83,7 @@ public class Change_PasswordServlet extends HttpServlet {
 				request.getSession().setAttribute("msg", "Mat khau cu khong dung! Vui long thu lai");
 				response.sendRedirect("changepassword");
 			}
-		} else {
-			request.getSession().setAttribute("msg", "Email khong dung! vui long thu lai");
-			response.sendRedirect("changepassword");
-		}
+		} 
 		// TODO Auto-generated method stub
 	}
 

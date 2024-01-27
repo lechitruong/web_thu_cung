@@ -23,9 +23,13 @@
 			<form action="${pageContext.request.contextPath}/changepassword?action=changepassword"
 				method="post">
 				<span style="color: red"> <%=msg1 == null ? "" : msg1%> 
-				<input type="text" name="email" placeholder="Vui lòng nhập Email">
-					<input type="password" name="oldpass" placeholder="Vui lòng nhập Mật khẩu cũ"> 
-					<input type="password" name="newpass" placeholder="Vui lòng nhập Mật khẩu mới"> 
+				
+				<div class="mb-3">
+                      <input class="form-control" name="oldpass" id="inputPassword"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" type="password" placeholder="Nhập mật khẩu cũ">
+                  </div>
+                  <div class="mb-3">
+                    <input class="form-control" name="newpass" id="inputConfirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" type="password" placeholder="Nhập mật khẩu mới">
+                  </div>
 					<a href="${pageContext.request.contextPath}/forgotpassword">Quên
 						mật khẩu</a> 
 					<input type="submit" class="button change_password" value="Đổi mật khẩu">

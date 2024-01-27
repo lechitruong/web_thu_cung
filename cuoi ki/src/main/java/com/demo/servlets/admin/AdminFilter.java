@@ -11,20 +11,23 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.demo.entities.Users;
 
 /**
  * Servlet Filter implementation class AdminFilter
  */
-//@WebFilter("/admin/*")
+@WebFilter("/admin/*")
 public class AdminFilter extends HttpFilter implements Filter {
-       
-    /**
-     * @see HttpFilter#HttpFilter()
-     */
-    public AdminFilter() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpFilter#HttpFilter()
+	 */
+	public AdminFilter() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -36,19 +39,18 @@ public class AdminFilter extends HttpFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		// place your code here
-
-		// pass the request along the filter chain
-//		HttpServletRequest req = (HttpServletRequest) request;
-//		HttpServletResponse res = (HttpServletResponse) response;
-//		boolean status = false;
-//		if(status == false) {
-//			res.sendRedirect(req.getContextPath()+"/login");
-//		}else {
-//			chain.doFilter(request, response);			
-//		}
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
+		HttpSession session = httpRequest.getSession();
+		Users user = (Users) session.getAttribute("user");
+		if (user != null && user.isAdmin() == true) {
+			chain.doFilter(request, response);
+		} else if (user != null && user.isAdmin() == false) {
+			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+		}
 	}
 
 	/**

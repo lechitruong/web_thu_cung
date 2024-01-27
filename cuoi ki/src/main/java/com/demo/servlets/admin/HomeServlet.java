@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.demo.models.OrderDetailsModel;
+
 /**
  * Servlet implementation class LoginAdminServlet
  */
@@ -28,6 +30,11 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("p", "../admin/index.jsp");
+		
+		OrderDetailsModel orderDetailsModel = new OrderDetailsModel();
+		request.setAttribute("dog", orderDetailsModel.quantity(1));
+		request.setAttribute("cat", orderDetailsModel.quantity(2));
+		request.setAttribute("other", orderDetailsModel.quantity(3));
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 	}
 

@@ -29,12 +29,46 @@ public class PetModel {
 				Pets pet = new Pets();
 				pet.setId(resultSet.getInt("id"));
 				pet.setPetName(resultSet.getString("petName"));
+				pet.setPetType(resultSet.getString("petType"));
 				pet.setPetGender(resultSet.getString("petGender"));
 				pet.setDescription(resultSet.getString("description"));
 				pet.setDetail(resultSet.getString("detail"));
 				pet.setMade(resultSet.getString("made"));
 				pet.setAmount(resultSet.getInt("amount"));
 				pet.setMoney(resultSet.getString("money"));
+				pet.setCreateDate(resultSet.getDate("createDate"));
+				pet.setImage(resultSet.getString("image"));
+				pet.setCategoryPetId(resultSet.getInt("categoryPetId"));
+				pet.setCatalogId(resultSet.getInt("catalogId"));
+				pets.add(pet);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			pets = null;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return pets;
+	}
+	public List<Pets> findByName(String keyword) {
+		List<Pets> pets = new ArrayList<>();
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from pets where petName like ? limit 5");
+			preparedStatement.setString(1, "%" + keyword + "%");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Pets pet = new Pets();
+				pet.setId(resultSet.getInt("id"));
+				pet.setPetName(resultSet.getString("petName"));
+				pet.setPetType(resultSet.getString("petType"));
+				pet.setPetGender(resultSet.getString("petGender"));
+				pet.setDescription(resultSet.getString("description"));
+				pet.setDetail(resultSet.getString("detail"));
+				pet.setMade(resultSet.getString("made"));
+				pet.setAmount(resultSet.getInt("amount"));
+				pet.setMoney(resultSet.getString("money"));
+				pet.setCreateDate(resultSet.getDate("createDate"));
 				pet.setImage(resultSet.getString("image"));
 				pet.setCategoryPetId(resultSet.getInt("categoryPetId"));
 				pet.setCatalogId(resultSet.getInt("catalogId"));
@@ -206,6 +240,79 @@ public class PetModel {
 		}
 		return result;
 	}
+	public boolean create(Pets pet) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement(
+					"insert into pets(petName, petType,petGender,description, detail, made, amount, money, createDate, image, categoryPetId, catalogId) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+			preparedStatement.setString(1, pet.getPetName());
+			preparedStatement.setString(2, pet.getPetType());
+			preparedStatement.setString(3, pet.getPetGender());
+			preparedStatement.setString(4, pet.getDescription());
+			preparedStatement.setString(5, pet.getDetail());
+			preparedStatement.setString(6, pet.getMade());
+			preparedStatement.setInt(7, pet.getAmount());
+			preparedStatement.setString(8, pet.getMoney());
+			preparedStatement.setDate(9, new java.sql.Date(pet.getCreateDate().getTime()));
+			preparedStatement.setString(10, pet.getImage());
+			preparedStatement.setInt(11, pet.getCategoryPetId());
+			preparedStatement.setInt(12, pet.getCatalogId());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			result = false;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+	}
+
+// ham update
+	public boolean update(Pets pet) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("update pets set petName =?, petType=?,petGender=?,description=?, detail=?, made=?, amount=?, money=?, createDate=?, image=?, categoryPetId=?, catalogId=? where id = ? ");
+			preparedStatement.setString(1, pet.getPetName());
+			preparedStatement.setString(2, pet.getPetType());
+			preparedStatement.setString(3, pet.getPetGender());
+			preparedStatement.setString(4, pet.getDescription());
+			preparedStatement.setString(5, pet.getDetail());
+			preparedStatement.setString(6, pet.getMade());
+			preparedStatement.setInt(7, pet.getAmount());
+			preparedStatement.setString(8, pet.getMoney());
+			preparedStatement.setDate(9, new java.sql.Date(pet.getCreateDate().getTime()));
+			preparedStatement.setString(10, pet.getImage());
+			preparedStatement.setInt(11, pet.getCategoryPetId());
+			preparedStatement.setInt(12, pet.getCatalogId());
+			preparedStatement.setInt(13, pet.getId());
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = false;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+	}
+
+// ham xoa user
+	public boolean delete(int id) {
+		boolean result = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("delete from pets where id = ? ");
+			preparedStatement.setInt(1, id);
+			result = preparedStatement.executeUpdate() > 0;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = false;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return result;
+	}
 
 	public static void main(String[] args) {
 		PetModel petModel = new PetModel();
@@ -216,7 +323,9 @@ public class PetModel {
 //		System.out.println(BCrypt.checkpw("123", "$2a$10$GQtaPy7y2Q3gsPhA.QlJueoo0wGjy.hNK5/U/GTqqxXMGEjtDnkRi"));
 //		System.out.println(BCrypt.hashpw("123", BCrypt.gensalt()));
 //		System.out.println(petModel.ageByPet("2003-12-08"));
-		System.out.println(petModel.findAllByCatalog(3, 16));
+//		System.out.println(petModel.findAllByCatalog(3, 16));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(petModel.create(new Pets("test1", "Lớn","Nhỏ","Oke", "Ổn", "Việt Nam", 1, "1 triệu đồng", new Date(), "pet.png", 3, 4)));
 	}
 
 }

@@ -1,114 +1,119 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <!-- Start header section -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.demo.entities.*"%>
+<%@ page import="com.demo.models.*"%>
+<%@ page import="java.util.*"%>
 
-    <div class="content-wrapper">
-      <div class="container-fluid">
-        <div class="row mt-3">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title">Sửa sản phẩm</div>
-                <hr>
-                <form method="post" action="${pageContext.request.contextPath}/admin/pet/edit">
-                
-                 <div class="form-group">
-                    <label for="input-1">Mã sản phẩm</label>
-                    <input type="text" class="form-control" readonly="readonly" id="input-1" placeholder="Mã sản phẩm" name="pet-sku" value="${pet.id}">
+
+<!-- Start header section -->
+<%
+CategoryModel categoryModel = new CategoryModel();
+List<CategoryPets> categoryPets = categoryModel.findAll();
+CatalogModel catalogModel = new CatalogModel();
+List<Catalogs> catalogs = catalogModel.findAll();
+Pets pet = (Pets) request.getAttribute("pet");
+%>
+<div class="content-wrapper">
+	<div class="container-fluid">
+		<div class="row mt-3">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="card-title">Sửa sản phẩm</div>
+						<hr>
+						<form method="post"
+							action="${pageContext.request.contextPath}/admin/editsanpham?action=editpet&id=<%= pet.getId() %>">
+
+							<div class="form-group">
+								<label for="input-1">Mã sản phẩm</label> <input type="text"
+									class="form-control" readonly="readonly" id="input-1"
+									placeholder="Mã sản phẩm" name="id" value="<%= pet.getId() %>">
+							</div>
+
+							<div class="form-group">
+								<label for="input-1">Tên sản phẩm</label> <input type="text"
+									class="form-control" id="input-2" placeholder="Tên sản phẩm"
+									name="petName" value="<%= pet.getPetName() %>">
+							</div>
+							 <div class="form-group">
+                    <label for="input-2">Kích thước</label>
+                   <div>
+                            <select class="form-control valid" id="input-3" name="petType" required aria-invalid="false">
+                                <option value="Lớn">Lớn</option>
+                                <option value="Nhỏ">Nhỏ</option>
+                            </select>
+                        </div>
                   </div>
-                  
                   <div class="form-group">
-                    <label for="input-1">Tên sản phẩm</label>
-                    <input type="text" class="form-control" id="input-1" placeholder="Tên sản phẩm" name="pet-name" value="${pet.name}">
+                    <label for="input-3">Giới tính</label>
+                   <div>
+                            <select class="form-control valid" id="input-4" name="petGender" required aria-invalid="false">
+                                <option value="Đực">Đực</option>
+                                <option value="Cái">Cái</option>
+                            </select>
+                        </div>
                   </div>
-                  
-        
                   <div class="form-group">
-	                  <label for="input-2">Chuyên mục</label>
-	                  <div>
-	                    <select class="form-control valid" id="input-6" name="pet-cate" aria-invalid="false">
-	                    <c:forEach items="${catelist}" var="cate">
-	                        <option value="${cate.id }" selected="selected">${cate.name }</option>
-	                    </c:forEach>
+                    <label for="input-4">Thông tin cơ bản</label>
+                    <input type="text" class="form-control" id="input-5" placeholder="Thông tin cơ bản" name="description" value="<%= pet.getDescription() %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-5">Thông tin cụ thể</label>
+                    <input type="text" class="form-control" id="input-6" placeholder="Thông tin cụ thể" name="detail" value="<%= pet.getDetail() %>" >
+                  </div>
+                  <div class="form-group">
+                    <label for="input-6">Xuất xứ</label>
+                    <input type="text" class="form-control" id="input-7" placeholder="Xuất xứ" name="made" value="<%= pet.getMade() %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-1">Số lượng</label>
+                    <input type="text" class="form-control" id="input-8" placeholder="Số lượng" name="amount" value="<%= pet.getAmount() %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-1">Giá (triệu đồng)</label>
+                    <input type="text" class="form-control" id="input-9" placeholder="Giá" name="money" value="<%= pet.getMoney() %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-1">Ngày sinh</label>
+                    <input type="text" class="form-control" id="createDate" placeholder="Ngày sinh" name="createDate" value="<%= pet.getCreateDate() %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-1">Ảnh</label>
+                    <input type="text" class="form-control" id="input-10" placeholder="Ảnh" name="image" value="<%= pet.getImage() %>">
+                  </div>
+                    <div class="form-group">
+                        <label for="input-2">Loại</label>
+                         <div>
+	                    <select class="form-control valid" id="input-11" name="categoryname" required aria-invalid="false">
+	                    <% for(CategoryPets categoryPet: categoryPets){ %>
+                            <option value="<%=categoryPet.getId()%>"><%= categoryPet.getName() %></option>
+                            <% } %>                           
 	                    </select>
 	                  </div>
-	                </div>
-	                 <div class="form-group">
-                    <label for="input-1">Ngày</label> 
-                    <input type="date" class="form-control" id="input-1" placeholder="Ngày đăng" name="pet-day" value="${pet.created}">
-                  </div>
-	                <div class="form-group">
-                    <label for="input-1">Giá</label>
-                    <input type="text" class="form-control" id="input-1" placeholder="Giá" name="pet-price" value="${pet.price}">
-                  </div>
-                  
+                    </div>
                     <div class="form-group">
-	                  <label for="input-2">Trạng thái</label>
-	                  <div>
-	                    <select class="form-control valid" id="input-6" name="pet-status" required aria-invalid="false">
-	                        <option value="1">Còn hàng</option>
-	                        <option value="0" >Hết hàng</option>
-	                    </select>
-	                  </div>
-	                </div>
-                    <div class="form-group">
-                        <label for="input-2">Loại thú cưng</label>
+                        <label for="input-2">Chuyên mục</label>
                         <div>
-                            <select class="form-control valid" id="input-7" name="pet-type" required aria-invalid="false">
-                                <option value="1">Lớn</option>
-                                <option value="0">Nhỏ</option>
+                            <select class="form-control valid" id="input-12" name="catalogname" aria-invalid="false">
+                                 <% for(Catalogs catalog: catalogs){ %>
+                            <option value="<%=catalog.getId()%>"><%= catalog.getName() %></option>
+                            <% } %> 
                             </select>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="input-3">Giới tính</label>
-                        <div>
-                            <select class="form-control valid" id="input-8" name="pet-gender" required aria-invalid="false">
-                                <option value="1">Đực</option>
-                                <option value="0">Cái</option>
-                            </select>
-                        </div>
-                    </div>
-	                 <div class="form-group">
-		                <label for="input-2">Giảm giá</label>
-		                <div class="input-group">
-		                <input type="text" class="form-control" placeholder="Giảm ... %" name="pet-discount" value="${pet.discount}">
-		                <div class="input-group-append">
-		                <button class="btn btn-light" type="button">%</button>
-		                </div>
-		                </div>
-	              </div>
-                 <div class="form-group">
-                  <label for="input-2" class="col-form-label">Mô tả</label>
-                  <div>
-                    <textarea class="form-control" rows="4" id="input-17" name="pet-desc">${pet.description}</textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="input-2" class="col-form-label">Nội dung</label>
-                  <div>
-                    <textarea class="form-control" rows="4" id="input-17" name="pet-content">${pet.content}</textarea>
-                  </div>
-                </div>
-                
-                 <div class="form-group">
-                    <label for="input-1">Ảnh đại diện</label>
-                    <input type="text" class="form-control" id="input-1" placeholder="Tên hình" name="pet-image" value="${pet.image_link}">
-                  </div>
-              
-              
-          
-               <div class="form-footer">
-                     <button class="btn btn-danger"><a href="${pageContext.request.contextPath}/admin/pet/list">Hủy</a></button>
-                         
-                     <button type="submit" class="btn btn-success">Cập nhật</button>
-                </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="overlay toggle-menu"></div>
-      </div>
-    </div>
+							<div class="form-footer">
+								<button class="btn btn-danger">
+									<a href="${pageContext.request.contextPath}/danhsachsanpham">Hủy</a>
+								</button>
+
+								<button type="submit" class="btn btn-success">Cập nhật</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="overlay toggle-menu"></div>
+	</div>
+</div>

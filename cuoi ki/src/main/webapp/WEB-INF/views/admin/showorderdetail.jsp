@@ -1,16 +1,17 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-  response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
-  response.setHeader("Pragma" , "no-cache");
-  response.setHeader("Expires" , "0");
-  
-  
-  if (session.getAttribute("admin-username") == null){
-	  response.sendRedirect(request.getContextPath() + "/admin/login");
-  }
-  %>
-  <!-- Start header section -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
+	<%@ page import="java.util.*" %>
+	<%@ page import="com.demo.entities.*" %>
+	<%@ page import="com.demo.models.*" %>
+	<%
+	
+	List<OrderDetails> orderDetails =(List<OrderDetails>) request.getSession().getAttribute("orderdetails");
+	OrderDetailsModel orderDetailsModel = new OrderDetailsModel();
+	OrderModel orderModel = new OrderModel();
+	PetModel petModel = new PetModel();
+	
+	%>
+	 <!-- Start header section -->
     <div class="content-wrapper">
       <div class="container-fluid">
         <!--End Row-->
@@ -26,30 +27,22 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                       <th scope="col">ID Đơn Hàng</th>
-                        <th scope="col">ID Sản Phẩm</th>
-                        <th scope="col">Tên Sản Phẩm</th>
-                        <th scope="col">Giá</th>
-                         <th scope="col">Số lượng</th>
+                        <th scope="col">STT</th>
+                       <th scope="col">Tên thú cưng</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Thành tiền</th>
                       </tr>
                     </thead>
                     <tbody>
-                  <c:forEach items="${orderedlist}" var="orderedlist">
+                    
+                     <% for(OrderDetails orderDetail: orderDetails){ %>
                       <tr>
-                        <td scope="row">${orderedlist.id}</td>
-                         <td>${orderedlist.transaction_id}</td>
-                        <td>${orderedlist.petId}</td>
-                        <c:forEach items="${pets}" var="pets">
-                        <c:if test="${pets.id == orderedlist.petId}">
-	                        <td>${pets.name}</td>
-	                        <td>${pets.price} VNĐ</td>
-                        </c:if>
-                        </c:forEach>
-                         <td>${orderedlist.qty}</td>
-                          
+                        <td scope="row"><%= orderDetail.getId() %></td>
+                         <td><%= petModel.findPetById(orderDetail.getPetId()).getPetName() %></td>
+                        <td><%= 1 %></td>
+                        <td><%= orderDetail.getMoney() %></td>
                      </tr>
-                    </c:forEach>
+                    <% } %>
                     </tbody>
                   </table>
                 </div>
@@ -59,3 +52,4 @@
         </div>
       </div>
     </div>
+	 

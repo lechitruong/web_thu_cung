@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.User;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.demo.entities.Users;
@@ -129,7 +128,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("home");
 			} else if (user.isAdmin()) {
 				System.out.println("thanh cong");
-				request.getSession().setAttribute("user1", userModel.findUserByUserName(username));
+				request.getSession().setAttribute("user", userModel.findUserByUserName(username));
 				response.sendRedirect("admin/home");
 			}
 		} else {
