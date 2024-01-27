@@ -224,7 +224,8 @@ h6 {
     min-width: 60px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.892);
     z-index: 100;
-    top: 100%; /* Hiển thị dropdown bên dưới phần tử gốc */
+    top: 70%; /* Hiển thị dropdown bên dưới phần tử gốc */
+    right: 5px;
 }
 
 .col10.header-icon:hover .dropdown-content {

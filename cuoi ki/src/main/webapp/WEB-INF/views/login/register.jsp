@@ -18,13 +18,14 @@
 				action="${pageContext.request.contextPath}/login?action=register"
 				method="post">
 				<input type="text" name="username"
-					placeholder="Vui lòng nhập Tên đăng nhập"> <input
+					placeholder="Vui lòng nhập Tên đăng nhập"> 
+				<input
 					type="text" name="email" placeholder="Vui lòng nhập Email">
 				<input type="password" name="password"
-					placeholder="Vui lòng nhập Mật khẩu"> <input
-					type="password" name="password"
-					placeholder="Vui lòng nhập lại Mật khẩu"> <input
-					type="submit" class="button" value="Đăng ký">
+					placeholder="Vui lòng nhập Mật khẩu"> 
+					<input type="password" name="password"
+					placeholder="Vui lòng nhập lại Mật khẩu"> 
+					<input type="submit" class="button" value="Đăng ký">
 			</form>
 			<div class="signup">
 				<span class="signup">Bạn đã có tài khoản? <a

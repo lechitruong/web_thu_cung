@@ -15,8 +15,8 @@ import java.io.PrintWriter;
 import java.util.Properties;
 
 public class MailHelper {
-	final static String username = "tmotoshop.service@gmail.com";//your email id
-    final static String password = "yroy ynqy hznh azjv";// your password
+	final static String username = "atun123456789cu@gmail.com";//your email id
+    final static String password = "qnwb zznk duhr ogmw";// your password
 
 	 public static void MailHelper(String email, String subject, String final_Text) {
 		 Properties props = new Properties();
@@ -50,7 +50,7 @@ public class MailHelper {
 	      }
 	 }
 	 public static void main(String[] args) {
-		MailHelper("phucthanh2104@gmail.com", "Verify tai khoan cua ban", "Ban hay nhap vao lien ket sau de verify tai khoan <br>"
+		MailHelper("lephuc11232@gmail.com", "Verify tai khoan cua ban", "Ban hay nhap vao lien ket sau de verify tai khoan <br>"
 				+ "<a href='google.com'>Lien ket</a>");
 	}
 	

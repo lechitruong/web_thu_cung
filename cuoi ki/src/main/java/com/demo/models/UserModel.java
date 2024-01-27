@@ -260,6 +260,6 @@ public class UserModel {
 //		System.out.println(userModel.checkLogin("admin1", "123"));
 //		System.out.println(userModel.findAllAdmin(true));
 //		System.out.println(BCrypt.checkpw("123", "$2a$10$GQtaPy7y2Q3gsPhA.QlJueoo0wGjy.hNK5/U/GTqqxXMGEjtDnkRi"));
-//		System.out.println(BCrypt.hashpw("123", BCrypt.gensalt()));
+		System.out.println(BCrypt.hashpw("Truong11232@", BCrypt.gensalt()));
 	}
 }

@@ -4,7 +4,7 @@ public class OrderDetails {
 private int id;
 private int orderId;
 private int petId;
-private int quanlity;
+private int quanlity; 
 private int money;
 public OrderDetails(int id, int orderId, int petId, int quanlity, int money) {
 	super();

@@ -1,325 +1,319 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <div class="checkout-area pt-60 pb-30">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <form action="#">
-                        <div class="checkbox-form">
-                            <h3>CHI TIẾT THANH TOÁN</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>
-                                            <Hgroup></Hgroup>Họ <span class="required">*</span>
-                                        </label>
-                                        <input placeholder="" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Tên <span class="required">*</span></label>
-                                        <input placeholder="" type="text">
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <form action="">
-                                        <select name="" id="province">
-                                        </select>
-                                        <select name="" id="district">
-                                            <option value="">chọn quận</option>
-                                        </select>
-                                        <select name="" id="ward">
-                                            <option value="">chọn phường</option>
-                                        </select>
-                                    </form>
-                                    <h2 id="result"></h2>
-                                </div>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<head>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+}
 
-                                <style>
-                                    .container {
-                                        max-width: 900px;
-                                        margin: 0 auto;
-                                        padding: 20px;
-                                        text-align: center;
-                                    }
+.order-form {
+	width: 50%;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-                                    form {
-                                        margin-bottom: 100px;
-                                    }
+h3 {
+	text-align: center;
+}
 
-                                    select {
-                                        padding: 10px;
-                                        margin: 3px;
-                                        width: 100%;
-                                        box-sizing: border-box;
-                                    }
+.product-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
 
-                                    #result {
-                                        font-size: 18px;
-                                        color: #333;
-                                    }
+.quantity {
+	width: 40px;
+	text-align: center;
+}
 
-                                    /* General Styles */
-                                    .checkout-form-list {
-                                        margin-bottom: 20px;
-                                    }
+.total {
+	font-weight: bold;
+}
 
-                                    .checkout-form-list label {
-                                        display: block;
-                                        font-weight: bold;
-                                        margin-bottom: 8px;
-                                    }
+.discount-code {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
-                                    .checkout-form-list input,
-                                    .checkout-form-list select,
-                                    .checkout-form-list textarea {
-                                        width: 100%;
-                                        padding: 10px;
-                                        border: 1px solid #ccc;
-                                        border-radius: 5px;
-                                    }
+.payment-options {
+	margin-top: 20px;
+}
 
-                                    /* Different Address Section */
-                                    .different-address {
-                                        margin-top: 30px;
-                                    }
+.checkout-button {
+	background-color: red;
+	padding: 10px;
+	cursor: pointer;
+	color: white;
+	border: none;
+	border-radius: 5px;
+}
 
-                                    #ship-box-info {
-                                        display: none;
-                                        /* Hide the different address section initially */
-                                    }
+@media ( max-width : 768px) {
+	.order-form {
+		width: 80%;
+	}
+}
 
-                                    /* Buttons and Additional Styles */
-                                    .checkout-button {
-                                        background-color: #e74c3c;
-                                        color: white;
-                                        padding: 15px 30px;
-                                        border: none;
-                                        border-radius: 5px;
-                                        cursor: pointer;
-                                        font-size: 18px;
-                                        transition: background-color 0.3s ease;
-                                    }
+.payment-options {
+	margin-top: 20px;
+	text-align: center;
+}
 
-                                    .checkout-button:hover {
-                                        background-color: #c0392b;
-                                    }
+.payment-options button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 10px;
+	margin: 10px 10px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 16px;
+}
 
-                                    /* Responsive Styles */
-                                    @media screen and (max-width: 768px) {
-                                        .row {
-                                            flex-direction: column;
-                                        }
+.payment-options button:hover {
+	background-color: #45a049;
+}
 
-                                        .checkout-form-list {
-                                            width: 100%;
-                                        }
-                                    }
-                                </style>
+.discount-code {
+	margin-top: 20px;
+	text-align: center;
+}
 
+.discount-code input {
+	padding: 10px;
+	width: 200px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+}
 
+.discount-code button {
+	background-color: #3498db;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
 
-                                
+.discount-code button:hover {
+	background-color: #2980b9;
+}
 
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label style="margin-bottom: 13px;">Địa Chỉ Email <span class="required">*</span></label>
-                                        <input placeholder="" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list" >
-                                        <label>Số ĐT <span class="required">*</span></label>
-                                        <input type="text" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div id="cbox-info" class="checkout-form-list create-account">
-                                        <p>Tạo một tài khoản bằng cách nhập thông tin dưới đây. Nếu bạn là khách hàng
-                                            cũ, vui lòng đăng nhập ở đầu trang.</p>
-                                        <label>Mật Khẩu <span class="required">*</span></label>
-                                        <input placeholder="password" type="password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="different-address">
-                                <div class="order-notes">
-                                    <div class="checkout-form-list">
-                                        <label>Ghi chú khác</label>
-                                        <textarea id="checkout-mess" cols="30" rows="10"
-                                            placeholder="Điền các thông tin cần ghi chú vào đây"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+.checkout-button {
+	background-color: #e74c3c;
+	color: white;
+	padding: 15px 30px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 18px;
+	transition: background-color 0.3s ease;
+}
 
+.checkout-button:hover {
+	background-color: #c0392b;
+}
 
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        background-color: #f4f4f4;
-                        margin: 0;
-                        padding: 0;
-                    }
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
 
-                    .order-form {
-                        width: 50%;
-                        background-color: #fff;
-                        padding: 20px;
-                        border-radius: 10px;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    }
+form {
+	margin-bottom: 100px;
+}
 
-                    h3 {
-                        text-align: center;
-                    }
+select {
+	padding: 10px;
+	margin: 3px;
+	width: 100%;
+	box-sizing: border-box;
+}
 
-                    .product-row {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        margin-bottom: 10px;
-                    }
+#result {
+	font-size: 18px;
+	color: #333;
+}
 
-                    .quantity {
-                        width: 40px;
-                        text-align: center;
-                    }
+/* General Styles */
+.checkout-form-list {
+	margin-bottom: 20px;
+}
 
-                    .total {
-                        font-weight: bold;
-                    }
+.checkout-form-list label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
 
-                    .discount-code {
-                        margin-top: 10px;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    }
+.checkout-form-list input, .checkout-form-list select,
+	.checkout-form-list textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
 
-                    .payment-options {
-                        margin-top: 20px;
-                    }
+/* Different Address Section */
+.different-address {
+	margin-top: 30px;
+}
 
-                    .checkout-button {
-                        background-color: red;
-                        padding: 10px;
-                        cursor: pointer;
-                        color: white;
-                        border: none;
-                        border-radius: 5px;
-                    }
+#ship-box-info {
+	display: none;
+	/* Hide the different address section initially */
+}
 
-                    @media (max-width: 768px) {
-                        .order-form {
-                            width: 80%;
-                        }
-                    }
+/* Buttons and Additional Styles */
+.checkout-button {
+	background-color: #e74c3c;
+	color: white;
+	padding: 15px 30px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 18px;
+	transition: background-color 0.3s ease;
+}
 
-                    .payment-options {
-                        margin-top: 20px;
-                        text-align: center;
-                    }
+.checkout-button:hover {
+	background-color: #c0392b;
+}
 
-                    .payment-options button {
-                        background-color: #4CAF50;
-                        color: white;
-                        padding: 10px 10px;
-                        margin: 10px 10px;
-                        border: none;
-                        border-radius: 20px;
-                        cursor: pointer;
-                        font-size: 16px;
-                    }
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+	.row {
+		flex-direction: column;
+	}
+	.checkout-form-list {
+		width: 100%;
+	}
+}
+.checkout-area {
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
 
-                    .payment-options button:hover {
-                        background-color: #45a049;
-                    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-                    .discount-code {
-                        margin-top: 20px;
-                        text-align: center;
-                    }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
-                    .discount-code input {
-                        padding: 10px;
-                        width: 200px;
-                        border: 1px solid #ccc;
-                        border-radius: 5px;
-                        margin-right: 10px;
-                    }
+        .col-lg-6 {
+            width: 48%; /* Để đảm bảo không có khoảng trống giữa hai div */
+            margin-bottom: 20px; /* Để tạo khoảng cách giữa các hàng */
+        }
 
-                    .discount-code button {
-                        background-color: #3498db;
-                        color: white;
-                        padding: 10px 20px;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                    }
+        /* Thêm các kiểu CSS cho div và các phần tử khác nếu cần thiết */
+        div {
+            /* Thêm kiểu CSS cho div */
+            margin-bottom: 10px;
+        }
+</style>
+</head>
+<div class="checkout-area pt-60 pb-30">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<form action="${pageContext.request.contextPath }/checkout?action=dathang" method="post" class="row" id="orderForm">
+					<div class="checkbox-form col-lg-6">
+						<h3>CHI TIẾT THANH TOÁN</h3>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="checkout-form-list">
+									<label>Tên <span class="required">*</span></label> <input
+										placeholder="Tên" name="name" id="name" type="text">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="checkout-form-list">
+									<label>Địa chỉ <span class="required">*</span></label> <input
+										placeholder="Địa chỉ" name="address" id="address" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="checkout-form-list">
+									<label style="margin-bottom: 13px;">Địa Chỉ Email <span
+										class="required">*</span></label>
+										<input class="form-control" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" id="email" type="email" placeholder="Nhập email" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="checkout-form-list">
+									<label>Số ĐT <span class="required">*</span></label> 
+									<input class="form-control" value="${sessionScope.accountdetails != null ? sessionScope.accountdetails.phonenumber : "" }" name="phonenumber" id="phonenumber" pattern="(\(\+[0-9]{2}\)|0)([0-9]{9,10})" type="tel" placeholder="Nhập số điện thoại của bạn" required>
+								</div>
+							</div>
+						</div>
+						<div class="different-address">
+							<div class="order-notes">
+								<div class="checkout-form-list">
+									<label>Ghi chú khác</label>
+									<textarea id="checkout-mess" cols="30" rows="10" name="note"
+										placeholder="Điền các thông tin cần ghi chú vào đây"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                    .discount-code button:hover {
-                        background-color: #2980b9;
-                    }
+			<div class="order-form col-lg-6 ">
+				<h3>Đơn đặt hàng của bạn</h3>
+				<c:forEach var="pet" items="${sessionScope.pets}">
+					<div class="product-row">
+						<img height="50px" width="50px"
+							src="${pageContext.request.contextPath}/assets/user/image/anhcho/${pet.image}"
+							alt="" name="petimage"> 
+							<span name="petname">${pet.petName }</span>
+						<div>
+							<input type="text" class="quantity" name="quantity" id="quantity-gold" value="1"
+								readonly>
+						</div>
+						<span class="total total-sp" name="money" id="total-gold">${pet.money }</span>
+					</div>
+				</c:forEach>
 
-                    .checkout-button {
-                        background-color: #e74c3c;
-                        color: white;
-                        padding: 15px 30px;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        font-size: 18px;
-                        transition: background-color 0.3s ease;
-                    }
+				<div>
+					<p class="total">
+						Tổng số tiền đơn hàng: <span id="total-order">0đ</span> <input name="totalmoney" id="total-order1" type="hidden" >
+					</p>
+				</div>
 
-                    .checkout-button:hover {
-                        background-color: #c0392b;
-                    }
+				<div class="payment-options">
+					<button onclick="payOnDelivery()">Thanh toán khi nhận hàng</button>
+					<button onclick="payOnline()">Thanh toán online</button>
+				</div>
 
-                </style>
-                </head>
+				<div class="payment-details" id="payment-details"></div>
 
-                <body>
+				<button type="submit" class="checkout-button">Đặt
+					hàng</button>
+			</div>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
 
-                    <div class="order-form">
-                        <h3>Đơn đặt hàng của bạn</h3>
-                        <c:forEach var="pet" items="${sessionScope.pets}">
-                        <div class="product-row">
-                            <img height="50px" width="50px" src="${pageContext.request.contextPath}/assets/user/image/anhcho/${pet.image}" alt="">
-                            <span>${pet.petName }</span>
-                            <div>
-                                <input type="text" class="quantity" id="quantity-gold" value="1" readonly>
-                            </div>
-                            <span class="total total-sp" id="total-gold">${pet.money }</span>
-                        </div>       	
-                        </c:forEach>
-
-
-                        <div class="discount-code">
-                            <input type="text" placeholder="Nhập mã giảm giá" id="discount-code">
-                            <button onclick="applyDiscountCode()">Áp dụng mã</button>
-                        </div>
-
-                        <div>
-                            <p class="total">Tổng số tiền đơn hàng: <span id="total-order">0đ</span></p>
-                        </div>
-
-                        <div class="payment-options">
-                            <button onclick="payOnDelivery()">Thanh toán khi nhận hàng</button>
-                            <button onclick="payOnline()">Thanh toán online</button>
-                        </div>
-
-                        <div class="payment-details" id="payment-details"></div>
-
-                        <div class="checkout-button" onclick="checkOutOrder()">Đặt hàng</div>
-                    </div>
-
-                    <script>
+<script>
                     // Wait for the DOM to be ready
                     document.addEventListener('DOMContentLoaded', function () {
                         // Get all elements with class "total"
@@ -342,6 +336,7 @@
 
                         // Display the total money in the console or wherever you need it
                         document.getElementById('total-order').innerText = totalMoney + " triệu đồng";
+                        document.getElementById('total-order1').value = totalMoney;
                     });
                         var productPrices = {
                             gold: 100000,
@@ -421,15 +416,22 @@ function updateTotalOrder() {
                                 '<p>Chủ tài khoản: Tran Thanh Tri</p>';
                         }
 
-                        function checkOutOrder() {
-                        }
-                    </script>
+                        
+                        document.querySelector('.checkout-button').addEventListener('click', function() {
+                            console.log('Nút "Đặt hàng" được nhấn.');
+                            var name = document.getElementById("name").value;
+                            var address = document.getElementById("address").value;
+                            var email = document.getElementById("email").value;
+                            var phonenumber = document.getElementById("phonenumber").value;
 
-            </div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-                                <script>
+                            // Kiểm tra xem các trường đã nhập đủ thông tin chưa
+                            if (!name || !address || !email || !phonenumber) {
+                                alert('Vui lòng nhập đủ thông tin để đặt hàng.');
+                                return;
+                            }
+
+                            alert('Đặt hàng thành công');
+                        });
                                     var citis = document.getElementById("city");
                                     var districts = document.getElementById("district");
                                     var wards = document.getElementById("ward");
@@ -471,3 +473,5 @@ function updateTotalOrder() {
                                         };
                                     }
                                 </script>
+                                <script
+	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>

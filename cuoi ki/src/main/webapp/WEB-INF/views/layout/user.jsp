@@ -61,8 +61,28 @@
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/${pageContext.request.contextPath}/assets/user/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/user/css/all.min.css">
+	  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+ 
 </head>
 
+<script>
+$(document).ready(function () {
+	$( "#timkiem" ).autocomplete({
+	    minLength: 0,
+	    source: '${pageContext.request.contextPath}/autocomplete',
+	    select: function( event, ui ) {
+			
+	      return false;
+	    }
+	  })
+	  .autocomplete( "instance" )._renderItem = function( ul, item ) {
+	    return $( "<li style='background-color: white; list-style-type: none; margin-left:-30px !important; width:250px;   position: relative; z-index: 2;'>" )
+	      .append( "<a style='text-decoration: none; color: black;' href='${pageContext.request.contextPath}/chitiet?action=petDetails&id=" + item.id + "'><div><img src='${pageContext.request.contextPath}/assets/user/image/anhcho/" + item.image + "' height='50' width='60'> &nbsp;" + item.petName + "</div></a>" )
+	      .appendTo( ul );
+	  };
+});
+	
+</script>
 <body>
 	<div class="overlay"></div>
 	<!--  header -->
@@ -75,7 +95,7 @@
 			</div>
 			<div class="col40">
 				<div class="search">
-					<input type="search" placeholder="Bạn tìm gì..." /> <input
+					<input id="timkiem" placeholder="Bạn tìm gì..." /> <input
 						type="image" value="timkiem"
 						src="${pageContext.request.contextPath}/assets/user/image/icon/search-icon.png" />
 				</div>
@@ -167,7 +187,10 @@
 						<span class="header-icon-label">${sessionScope.user.fullName }</span>
 						<div class="dropdown-content">
 							<a href="${pageContext.request.contextPath}/thongtintaikhoan">Tài
-								khoản của tôi</a> <a
+								khoản của tôi</a>
+								<a
+						href="${pageContext.request.contextPath}/changepassword?action=changepassword">Đổi mật khẩu</a>
+								 <a
 								href="${pageContext.request.contextPath}/tinhtrangdonhang">Thông
 								tin đơn hàng</a> <a
 								href="${pageContext.request.contextPath}/login?action=logout">Đăng
@@ -389,6 +412,7 @@ Nhập nội dung
 	<!-- Font Awesome Stars-->
 	<link rel="stylesheet"
 		href="${pageContext.request.contextPath}/assets/user/css/fontawesome-stars.css">
+		 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </body>
 
 </html>

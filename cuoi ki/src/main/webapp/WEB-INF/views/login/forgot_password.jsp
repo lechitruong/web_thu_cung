@@ -23,12 +23,31 @@
 			<form
 				action="${pageContext.request.contextPath}/forgotpassword?action=forgotpassword"
 				method="post">
-				<span style="color: red"> <%=msg1 == null ? "" : msg1%>
-				</span> <input type="password" name="newpass"
-					placeholder="Vui lòng nhập Mật khẩu mới"> <input
-					type="password" name="newpass2"
-					placeholder="Vui lòng nhập lại Mật khẩu mới"> <a
-					href="./change_password.html">Đổi mật khẩu</a> <input type="submit"
+				<span style="color: red"> <%=msg1 == null ? "" : msg1%></span> 
+				<div class="mb-3">
+                      <label class="small mb-1" for="inputPassword">Mật khẩu mới</label>
+                      <input class="form-control" name="newpass" id="inputPassword"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" type="password" placeholder="Nhập mật khẩu mới">
+                  </div>
+                  <div class="mb-3">
+                    <label class="small mb-1" for="inputUsername">Xác nhận mật khẩu</label>
+                    <input class="form-control" name="newpass2" id="inputConfirmPassword" type="password" placeholder="Nhập lại mật khẩu của bạn">
+                  </div>
+                  <script>
+                    var password = document.getElementById("inputPassword")
+                      , confirm_password = document.getElementById("inputConfirmPassword");
+
+                    function validatePassword(){
+                      if(password.value != confirm_password.value) {
+                        confirm_password.setCustomValidity("Passwords Don't Match");
+                      } else {
+                        confirm_password.setCustomValidity('');
+                      }
+                    }
+
+                    password.onchange = validatePassword;
+                    confirm_password.onkeyup = validatePassword;
+                  </script>
+				<a	href="./change_password.html">Đổi mật khẩu</a> <input type="submit"
 					class="button change_password" value="Xác nhận">
 			</form>
 			<div class="signup">
